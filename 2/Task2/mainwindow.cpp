@@ -15,9 +15,13 @@ MainWindow::MainWindow(QWidget *parent) :
     m_butt_set_geometry->setGeometry(50,50,100,50);
 
 QObject::connect(m_butt_close,SIGNAL(clicked(bool)),this,SLOT(close()));
-QObject::connect(m_butt_set_geometry,SIGNAL(clicked()),m_butt_set_geometry, \
-                 SLOT(setGeometry(100,100,100,100)));
+QObject::connect(m_butt_set_geometry,SIGNAL(clicked()),this,SLOT(geomtr_rand()));
 
+}
+
+void MainWindow::geomtr_rand()
+{
+    m_butt_close->setGeometry(rand()%300,rand()%300,rand()%100,rand()%100);
 }
 
 MainWindow::~MainWindow()
